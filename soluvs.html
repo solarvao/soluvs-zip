@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>soluvs.zip ☆ photocard archive</title>
+<style>
+:root{--ink:#20243c;--pink:#ffb9d8;--blue:#b8eaff;--lav:#d9ccff;--paper:#fffaff;--line:#d8d3ed;--muted:#77758e}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:Tahoma,Verdana,sans-serif;background-color:#eaf5ff;background-image:radial-gradient(#b7d8f3 1px,transparent 1px),linear-gradient(135deg,#fce6f1,#e6f5ff 55%,#eee8ff);background-size:17px 17px,cover;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1040px,94%);margin:28px auto 60px}
+.topline{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#6d7291;margin:0 5px 12px}
+.window{background:rgba(255,255,255,.88);border:2px solid white;border-radius:18px;box-shadow:0 12px 35px #6b83aa2b;overflow:hidden}
+.chrome{height:38px;background:linear-gradient(90deg,#f9cce2,#d9d1ff,#c8edff);display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid #fff}
+.dots{display:flex;gap:6px}.dots i{width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 0 1px #fff8}
+.chrome span{font-size:11px;letter-spacing:1px;color:#555577}
+.hero{padding:30px 32px 24px;position:relative;background:linear-gradient(120deg,#fff8fc,#f4f5ff 60%,#effaff)}
+.hero:after{content:"✧　♡　✦　⋆";position:absolute;right:28px;top:25px;color:#9d9bc9;font-size:20px;letter-spacing:5px}
+.kicker{font-size:10px;letter-spacing:3px;color:#8d80b1;text-transform:uppercase}
+h1{font-family:Georgia,serif;font-size:clamp(43px,8vw,76px);font-weight:400;letter-spacing:-4px;margin:9px 0 4px;color:#30334f}
+h1 span{color:#e58eb9;font-style:italic}
+.subtitle{font-size:12px;color:#77758e;letter-spacing:1px}
+.hero-bottom{display:flex;gap:8px;flex-wrap:wrap;margin-top:19px}
+.pill{font-size:10px;border:1px solid #e5d9ef;background:#fff;padding:7px 11px;border-radius:30px;letter-spacing:.5px}
+nav{display:flex;gap:7px;flex-wrap:wrap;padding:12px 20px;background:#fff;border-top:1px solid #eee8f5;border-bottom:1px solid #eee8f5}
+nav button{border:1px solid transparent;background:transparent;color:#686783;padding:9px 13px;border-radius:9px;font-size:11px;letter-spacing:1px;cursor:pointer}
+nav button.active,nav button:hover{background:#fce8f2;border-color:#f6c8df;color:#9a5579}
+main{padding:22px;background:#fff}
+.page{display:none;animation:fade .25s ease}.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:15px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:18px;position:relative}
+.panel.blue{background:#f3fbff}.panel.pink{background:#fff5fa}
+.panel h2{font:italic 22px Georgia,serif;margin:0 0 12px;color:#585577}
+.panel h3{font-size:11px;letter-spacing:2px;text-transform:uppercase;margin:0 0 10px;color:#8176a4}
+p{font-size:12px;line-height:1.8;color:#55556e}
+.small{font-size:10px;color:var(--muted);line-height:1.7}
+.sticker{position:absolute;right:13px;top:10px;font-size:20px;transform:rotate(9deg)}
+.profileline{display:flex;gap:13px;align-items:center}
+.avatar{width:76px;height:76px;border-radius:12px;border:3px solid white;outline:1px solid #dfcde9;background:linear-gradient(145deg,#ffd9ea,#cceeff);display:grid;place-items:center;font:30px Georgia;color:#fff;text-shadow:0 1px 5px #9e8eb4}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:14px}
+.stat{background:#fff;border:1px dashed #d9cce8;border-radius:9px;text-align:center;padding:10px 5px;font-size:10px;color:#77718e}
+.stat b{display:block;font:18px Georgia;color:#d77da8;margin-bottom:3px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{font-size:10px;padding:6px 9px;background:#fff;border:1px solid #e8d9ef;border-radius:5px}
+.linkrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.linkbtn{display:inline-block;background:#fff;border:1px solid #d9cce8;border-radius:8px;padding:9px 12px;font-size:10px;letter-spacing:.7px;transition:.2s}
+.linkbtn:hover{background:#fce6f1;transform:translateY(-2px)}
+.sectionhead{display:flex;align-items:end;justify-content:space-between;margin:0 0 14px}
+.sectionhead h2{font:italic 26px Georgia,serif;margin:0;color:#565475}
+.sectionhead span{font-size:9px;letter-spacing:2px;color:#aaa0bf}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pc{background:#fff;border:1px solid #e2d8ed;border-radius:11px;padding:10px;box-shadow:0 4px 10px #9e91b01a}
+.pc-art{aspect-ratio:3/4;border-radius:7px;background:linear-gradient(145deg,#fbd8e9,#d9edff);display:grid;place-items:center;text-align:center;color:#8b7ca7;font:italic 18px Georgia;border:1px dashed #fff;position:relative;overflow:hidden}
+.pc-art:before{content:"✧　♡　✧";position:absolute;top:12px;font:12px Tahoma;letter-spacing:4px}
+.pc-art b{font:10px Tahoma;letter-spacing:2px;text-transform:uppercase}
+.pc:nth-child(2) .pc-art{background:linear-gradient(145deg,#d9d1ff,#e2f8ff)}
+.pc:nth-child(3) .pc-art{background:linear-gradient(145deg,#ffe6c9,#f9d9eb)}
+.pc strong{display:block;font-size:11px;margin:9px 0 4px}.pc small{font-size:9px;color:#88839b}
+.note{padding:11px 13px;border-left:3px solid #e8a9ca;background:#fff8fc;font-size:11px;line-height:1.7;color:#68617d;margin-top:13px}
+ul.clean{padding-left:17px;margin:8px 0}ul.clean li{font-size:12px;line-height:1.9;color:#5d5a74}
+footer{text-align:center;padding:18px;color:#8783a0;font-size:10px;letter-spacing:1px}
+@media(max-width:680px){.wrap{width:96%;margin:12px auto 30px}.hero{padding:25px 19px}.hero:after{right:14px;top:12px;font-size:14px}main{padding:13px}.grid{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}nav{padding:9px;gap:2px}nav button{padding:8px 9px;font-size:10px}.topline{font-size:9px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topline"><span>✦ personal photocard archive ✦</span><span>best viewed with sparkles on</span></div>
+  <div class="window">
+    <div class="chrome"><div class="dots"><i></i><i></i><i></i></div><span>soluvs.zip / home.html</span><span>♡ ☆ ♡</span></div>
+    <header class="hero">
+      <h1>soluvs<span>.zip</span></h1>
+    </header>
+    <nav aria-label="Site navigation">
+      <button class="active" data-page="home">⌂ HOME</button>
+      <button data-page="info">✉ INFO</button>
+      <button data-page="about">♡ ABOUT ME</button>
+      <button data-page="trading">⇄ TRADING</button>
+      <button data-page="buying">♡ BUYING</button>
+    </nav>
+    <main>
+      <section class="page active" id="home">
+        <div class="grid">
+          <div class="panel pink">
+            <h3>connect with me ♡</h3>
+            <p>For trades, questions, or just a little K-pop chat, come say hi on Instagram!</p>
+            <div class="linkrow"><a class="linkbtn" href="https://www.instagram.com/soluvs.zip/" target="_blank" rel="noopener">♡ @SOLUVS.ZIP ON INSTAGRAM</a></div>
+          </div>
+          <div class="panel blue">
+            <h3>shop my photocards ✧</h3>
+            <p>Looking to purchase? Browse my available photocards and listings over on Mercari.</p>
+            <div class="linkrow"><a class="linkbtn" href="https://www.mercari.com/u/soluvss/" target="_blank" rel="noopener">✧ VISIT MY MERCARI SHOP</a></div>
+          </div>
+          <div class="panel">
+            <h3>tiny notice board</h3>
+            <p>Full-time college student! I do my best to reply within 24 hours. Thank you for being patient with me ♡</p>
+            <div class="note">Please read my info page before buying, selling, or trading!</div>
+          </div>
+        </div>
+      </section>
+      <section class="page" id="about">
+        <div class="sectionhead"><h2>a little about me</h2><span>01 / PROFILE</span></div>
+        <div class="grid">
+          <div class="panel pink"><h3>the person behind the page</h3><p>I'm a 19-year-old full-time college student. I mainly collect CORTIS and I'm a James bias, but I also enjoy collecting KATSEYE. I'm here to meet other collectors, make fun trades, and give photocards a new home!</p><div class="tags"><span class="tag">she / her</span><span class="tag">college student</span><span class="tag">Hawaii</span></div></div>
+        </div>
+      </section>
+
+      <section class="page" id="trading">
+        <div class="sectionhead"><h2>trading info</h2><span>02 / PLEASE READ BEFORE CONFIRMING</span></div>
+        <p class="small">A few things to go over before we confirm a trade. Thank you for understanding and helping keep trades safe and smooth! ♡</p>
+        <div class="grid">
+          <div class="panel pink"><h3>01. PC condition & proof</h3><ul class="clean">
+            <li>I'll send a video of the photocard with flash on so you can clearly see its condition.</li>
+            <li>I kindly ask that you send one too!</li>
+            <li>Please disclose any damage or imperfections beforehand. I'll do the same.</li>
+          </ul></div>
+          <div class="panel blue"><h3>02. Packaging & shipping</h3><ul class="clean">
+            <li>I'll package the photocard securely in a sleeve and toploader.</li>
+            <li>I'll send a video of myself dropping off the mail at the post office as shipping confirmation. I kindly ask that you do the same!</li>
+          </ul></div>
+          <div class="panel"><h3>03. After shipping</h3><ul class="clean">
+            <li>Please let me know when your mail arrives, and I'll do the same!</li>
+            <li>I'm not responsible for mail that is lost, stolen, or delayed after it has been dropped off.</li>
+          </ul></div>
+          <div class="panel"><h3>04. Confirmation</h3><p>DM me <b>🌷</b> to confirm that you've read and agree to my trading info!</p><div class="note">Thank you for taking the time to read through everything ♡</div></div>
+        </div>
+      </section>
+      <section class="page" id="info">
+        <div class="sectionhead"><h2>general info</h2><span>03 / PLEASE READ</span></div>
+        <p class="small">Please read before claiming, purchasing, or trading! ♡</p>
+        <div class="grid">
+          <div class="panel pink"><h3>01. PC condition & proof</h3><ul class="clean">
+            <li>I'll send a video of the photocard with flash on to show its condition.</li>
+            <li>I kindly ask that you do the same when trading!</li>
+          </ul></div>
+          <div class="panel blue"><h3>02. Packaging</h3><ul class="clean">
+            <li>All photocards are packaged securely with a sleeve and toploader.</li>
+            <li>I make sure everything is protected before shipping!</li>
+          </ul></div>
+          <div class="panel"><h3>03. Shipping</h3><ul class="clean">
+            <li>All mail is sent through USPS at the post office.</li>
+            <li>All photocards are shipped with stamped postage.</li>
+            <li>I try to send as soon as possible, usually within a day or two.</li>
+          </ul></div>
+          <div class="panel blue"><h3>04. After shipping</h3><ul class="clean">
+            <li>Once the mail has been dropped off, I am not responsible for lost, stolen, or delayed mail.</li>
+            <li>Stamped mail does not include tracking, so please keep this in mind when purchasing or trading.</li>
+            <li>Please let me know when your mail arrives, and I'll do the same!</li>
+          </ul></div>
+          <div class="panel pink"><h3>05. Confirmation</h3><p>DM me <b>🌷</b> so I know you've read and agree to my general info!</p><div class="note">Thank you for reading and understanding! ♡</div></div>
+        </div>
+      </section>
+      
+      <section class="page" id="buying">
+        <div class="sectionhead"><h2>buying info</h2><span>04 / PLEASE READ BEFORE PURCHASING</span></div>
+        <div class="grid">
+          <div class="panel pink"><h3>01. Purchasing</h3>
+            <p>I have a Mercari shop where you can purchase my available photocards!</p>
+            <a class="linkbtn" href="https://www.mercari.com/u/soluvss/" target="_blank" rel="noopener">♡ VISIT MY MERCARI SHOP</a>
+          </div>
+          <div class="panel blue"><h3>02. PC condition & proof</h3><ul class="clean">
+            <li>I can provide a video of the photocard with flash on upon request.</li>
+            <li>Please feel free to ask for additional photos or videos!</li>
+          </ul></div>
+          <div class="panel"><h3>03. Packaging & shipping</h3><ul class="clean">
+            <li>All photocards are packaged securely using a sleeve and toploader.</li>
+            <li>All mail is sent through USPS using stamped postage.</li>
+            <li>I try to ship as soon as possible, typically within 1–2 days.</li>
+          </ul></div>
+          <div class="panel blue"><h3>04. After shipping</h3><ul class="clean">
+            <li>Once the mail has been dropped off, I am not responsible for lost, stolen, or delayed mail.</li>
+            <li>Stamped mail does not include tracking, so please keep this in mind when purchasing.</li>
+          </ul></div>
+          <div class="panel pink"><h3>05. Confirmation</h3>
+            <p>DM me <b>🌷</b> to confirm that you have read and agree to my buying info!</p>
+            <div class="note">Thank you for checking out my shop! ♡</div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>made with ♡ by solar &nbsp; · &nbsp; thank you for visiting! ✧</footer>
+  </div>
+</div>
+<script>
+const buttons=[...document.querySelectorAll('nav button')];
+const pages=[...document.querySelectorAll('.page')];
+buttons.forEach(btn=>btn.addEventListener('click',()=>{
+  buttons.forEach(b=>b.classList.toggle('active',b===btn));
+  pages.forEach(p=>p.classList.toggle('active',p.id===btn.dataset.page));
+  document.querySelector('.chrome span:nth-child(2)').textContent='soluvs.zip / '+btn.dataset.page+'.html';
+}));
+</script>
+</body>
+</html>
